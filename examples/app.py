@@ -1,7 +1,7 @@
 """
 Prerequisites
 
-    pip3 install spotipy Flask Flask-Session
+    pip3 install spotipy Flask Flask-Session flask-ngrok
 
     // from your [app settings](https://developer.spotify.com/dashboard/applications)
     export SPOTIPY_CLIENT_ID=client_id_here
@@ -24,6 +24,7 @@ Run app.py
 """
 
 import os
+from flask_ngrok import run_with_ngrok
 from flask import Flask, session, request, redirect
 from flask_session import Session
 import spotipy
@@ -33,7 +34,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = './.flask_session/'
-Session(app)
+#Session(app)
+run_with_ngrok(app)
 
 caches_folder = './.spotify_caches/'
 if not os.path.exists(caches_folder):
