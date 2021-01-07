@@ -28,6 +28,7 @@ setup(
     install_requires=[
         'requests>=2.20.0',
         'six>=1.10.0',
+        'flask-ngrok>=0.0.25',
     ],
     tests_require=test_reqs,
     extras_require=extra_reqs,
