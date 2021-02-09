@@ -374,6 +374,7 @@ class SpotifyOAuth(SpotifyAuthBase):
                 "Go to the following URL: {}\n"
                 "Enter the URL you were redirected to: ".format(url)
             )
+        print(prompt)
         response = self._get_user_input(prompt) #TODO, Note this is currently asked from user. want it to be automated.
         state, code = SpotifyOAuth.parse_auth_response_url(response)
         if self.state is not None and self.state != state:
